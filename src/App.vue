@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <button type="button" @click="getData">获取数据</button>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    async getData () {
+      const res = await this.$http.post('/login', { uaername: 'ok' })
+      console.log(res)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
